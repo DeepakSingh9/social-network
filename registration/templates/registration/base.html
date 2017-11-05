@@ -1,0 +1,73 @@
+{% load staticfiles %}
+
+<html>
+<head>
+<meta charset="utf-8">
+<title>Document</title>
+
+<!--for shortcut icon-->
+<link rel="icon" href="#" type="image/x-icon" />
+<link rel="shortcut icon" href="#" type="image/x-icon" />
+<link rel="apple-touch-icon" href="#" />
+<link href="registration/static/css/blog.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+<div class="outer">
+		<div class="logo"><a href="#"><img src="static/image/logo.png"></a></div>
+
+		<div class="login-pannel">
+
+        <ul>
+		{% if user.is_authenticated %}
+        <li><a class="smallbtn" href="{% url 'logout' %}" title="Login">Logout</a></li>
+		{% else %}
+		<li><a class="smallbtn" href="{% url 'login' %}" title="logout">Login</a></li>
+		<li><a class="samllbtn" href="{% url 'registration' %}" title="registration">Registration</a></li>
+		{% endif %}
+
+        </ul>
+
+		</div>
+</div>
+<div class="clear"></div>
+</header>
+
+
+<section class="home">
+{% block content %}
+{% endblock %}
+<div class="clear"></div>
+
+
+
+
+
+
+
+
+<!--------Author Section Begin------->
+	<div class="footer">
+		<div class="outer">
+			<div class="copyright-line">
+				<div class="copyright-left"> Terms of Use & Privacy</div>
+				<div class="copyright-right">Copyright © 2017 DASCA. All rights reserved.</div>
+
+			</div>
+		</div>
+	</div>
+<!--------Author Section End--------->
+
+
+
+
+
+</section>
+
+
+
+
+</body>
+</html>

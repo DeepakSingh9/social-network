@@ -1,0 +1,174 @@
+{% extends 'blog/base.html' %}
+{% load staticfiles %}
+{% block content %}
+<section class="home">
+
+<!--------Slide Section Begin--------->
+	<div class="banner banner2">
+		<div class="outer">
+
+			<div class="right-login">
+				<div class="leftR">
+                    <h2>Signup</h2>
+                </div>
+                <div class="clear"></div>
+                    <div class="inner-section">
+
+                        <form action="" id="" method="POST">
+
+
+<input name="" value="" type="hidden">
+<ul>
+<li><input class="input-field" name="" placeholder="Name" value="" type="Name"></li>
+<li><input class="input-field" name="" placeholder="Email" value="" type="Email"></li>
+<li><input class="input-field" name="" placeholder="Function" value="" type="Function"></li>
+<li><input class="input-field" name="" placeholder="Organization" value="" type="Organization"></li>
+<li>
+</li>
+</ul>
+</form>
+<div class="clear"></div><br>
+<a href="" class="log-btn" title="Register Now">Register Now</a>
+</div>
+<div class="clear"></div>
+</div>
+
+		</div>
+	</div>
+<!--------Slide Section End--------->
+
+	<div class="clear"></div>
+<!--------Product Section Begin--------->
+	<div class="product">
+		<div class="outer">
+		<h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
+		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+		<br><br>
+			<div class="pd-circle1">
+				<ul>
+					<li>
+					<i class="fa fa-code-fork"></i>
+					<h3>Network</h3>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+					</li>
+
+					<li>
+					<i class="fa fa-hashtag"></i>
+					<h3>Publish Article</h3>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+					</li>
+
+					<li>
+					<i class="fa fa-bolt"></i>
+					<h3>Engage</h3>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+					</li>
+
+					<li>
+					<i class="fa fa-comment"></i>
+					<h3>Enfluence</h3>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+					</li>
+				</ul>
+			</div>
+
+
+		</div>
+	</div>
+<!--------Product Section End--------->
+
+	<div class="clear"></div>
+<!--------Blog-Article Section Begin------->
+	<div class="blog-article">
+		<div class="outer">
+
+			<div class="article-left">
+			<h2>Fresh Baked</h2>
+				<ul>
+					<li><a href="#"><img src="static/images/blog1.jpg"><h3>Lorem Ipsum</h3>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p></a></li><li><a href="#"><img src="static/images/blog2.jpg"><h3>Lorem Ipsum</h3>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p></a></li>
+					<li><a href="#"><img src="static/images/blog3.jpg"><h3>Lorem Ipsum</h3>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p></a></li>
+					<li><a href="#"><img src="static/images/blog4.jpg"><h3>Lorem Ipsum</h3>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p></a></li>
+				</ul>
+				<div class="clear"></div><br>
+				<ul>
+					<li><a href="#"><img src="static/images/blog5.jpg"><h3>Lorem Ipsum</h3>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p></a></li>
+					<li><a href="#"><img src="static/images/blog6.jpg"><h3>Lorem Ipsum</h3>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p></a></li>
+					<li><a href="#"><img src="static/images/blog7.jpg"><h3>Lorem Ipsum</h3>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p></a></li>
+					<li><a href="#"><img src="static/images/blog8.jpg"><h3>Lorem Ipsum</h3>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p></a></li>
+				</ul>
+			</div>
+
+			<div class="article-right">
+				<h2>Sponsored</h2>
+				<img src="static/images/sopnser.jpg">
+			</div>
+		</div>
+	</div>
+<!--------Blog-Article Section End--------->
+
+<div class="clear"></div>
+<!--------Author Section Begin------->
+	<div class="author">
+		<div class="outer">
+		<div class="author-left">
+		<h2>Authors of the Month</h2>
+			<ul>
+				{% for topu in topuser %}
+				{% if topu.profile.profile_image %}
+
+				<li><a href=""><img src="{{topu.profile.profile_image.url}}"></a>
+{% endif %}
+
+					<span><b><a href="{% url 'account' pk=topu.id %}">{{topu.username}}</a></b></span>
+<div class="clear"></div>
+					<span><div class="left">Designation:</div><b class="right">{{topu.profile.designation}}</b>
+					<div class="clear"></div>
+					</span>
+
+					<span><div class="left">Organisation:</div><b class="right">{{topu.profile.organisation}}</b>
+					<div class="clear"></div>
+					</span>
+
+					<span><div class="left">Posts:</div><b class="right">{{topu.post_set.all.count}}</b>
+					<div class="clear"></div>
+					</span>
+
+
+
+
+			<a class="log-btn" href="{% url 'follow' pk=topu.id %}">Follow</a>
+            <!--followed by:{{topu.profile.followed_by.count}}</span></li>-->
+</li>
+
+
+				{% endfor %}
+				<!--<li><a href="#"><img src="static/images/author.jpg"></a><span>Lorem Ipsum</span></li>
+				<li><a href="#"><img src="static/images/author1.jpg"></a><span>Lorem Ipsum</span></li>
+				<li><a href="#"><img src="static/images/author2.jpg"></a><span>Lorem Ipsum</span></li>
+				<li><a href="#"><img src="static/images/author3.jpg"></a><span>Lorem Ipsum</span></li>
+				<li><a href="#"><img src="static/images/author4.jpg"></a><span>Lorem Ipsum</span></li>
+				<li><a href="#"><img src="static/images/author5.jpg"></a><span>Lorem Ipsum</span></li>
+				<li><a href="#"><img src="static/images/author6.jpg"></a><span>Lorem Ipsum</span></li>-->
+			</ul>
+		</div>
+		</div>
+	</div>
+<!--------Author Section End--------->
+
+<div class="clear"></div>
+<!--------Author Section Begin------->
+
+
+</section>
+
+{%endblock%}
+
+
