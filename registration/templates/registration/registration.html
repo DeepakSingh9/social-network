@@ -3,10 +3,23 @@
 
 
 {% block content %}
-<form action="" method="POST">
+<div class="login-form">
+    <div class="form">
+        <h2>Registeration</h2>
+
+<form class="login-form" action="" method="POST">
     {% csrf_token %}
-    {{userlogin.as_p}}
-    {{userregister.as_p}}
+    <ul>
+   <li><input type="text" placeholder="username" name="username"/></li>
+    <li><input type="password" placeholder="password" name="password"/></li>
+    <li><input type="text" placeholder="first name" name="first_name"/></li>
+    <li><input type="text" placeholder="last name" name="last_name"/></li>
+    <li><input type="text" placeholder="mobile number" name="mobile_number"/></li>
+    <li><input type="text" placeholder="designition" name="designation"/></li>
+    <li><input type="text" placeholder="organisation" name="organisation"/></li>
+        </ul>
     <button type="submit" value="save">save my details</button>
 </form>
+    </div>
+</div>
 {% endblock %}

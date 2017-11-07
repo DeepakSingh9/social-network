@@ -64,12 +64,12 @@ class Post(models.Model):
 
 
 
-
-
 class Like(models.Model):
     post=models.ForeignKey(Post)
     user=models.ForeignKey(User)
     created=models.DateTimeField(auto_now_add=True)
+
+
 
 
 class Comment(models.Model):
@@ -93,6 +93,10 @@ class Comment(models.Model):
 
 
 
+class SmallPost(models.Model):
+    writer=models.ForeignKey(User)
+    text=models.TextField(max_length=150)
+    created_date=models.DateTimeField(auto_now_add=True)
 
 
 

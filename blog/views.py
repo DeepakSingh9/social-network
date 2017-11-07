@@ -76,8 +76,9 @@ def Comment(request,pk):
 
 def profile(request,pk):
     user=get_object_or_404(User,pk=pk)
+    alluser=User.objects.all()[:6]
     posts=Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
-    return render(request,'blog/profile.html',{'user':user,'posts':posts})
+    return render(request,'blog/profile.html',{'user':user,'posts':posts,'alluser':alluser})
 
 
 

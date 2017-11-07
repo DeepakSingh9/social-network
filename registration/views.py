@@ -21,7 +21,7 @@ def user_login(request):
         if user is not None:
             if user.is_active:
                 login(request,user)
-                return redirect('account',pk=user.id)
+                return redirect('profile',pk=user.id)
             else:
                 return HttpResponse('Your account is disabled')
         else:
@@ -60,7 +60,7 @@ def user_registration(request):
     else:
         userlogin=LoginForm()
         userregister=RegistrationForm()
-    return render(request,'blog/post_list.html',{'userlogin':userlogin,'userregister':userregister})
+    return render(request,'registration/registration.html',{'userlogin':userlogin,'userregister':userregister,})
 
 
 
@@ -123,7 +123,7 @@ def follow(request,pk):
             try:
                 author.profile.followed_by.add(user.profile)
                 following = True
-                return redirect('/')
+                return redirect('account',pk=author.id)
             except ObjectDoesNotExist:
                 return HttpResponse('The author you are following has removed the account')
 

@@ -2,12 +2,13 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>HR FORUM</title>
+<title>{% block title %}{% endblock %}</title>
 <!--for shortcut icon-->
 <link rel="icon" href="#" type="image/x-icon" />
 <link rel="shortcut icon" href="#" type="image/x-icon" />
 <link rel="apple-touch-icon" href="#" />
 <link href="/static/css/blog.css" type="text/css" rel="stylesheet">
+
 
 <style>
 	.pop-modal-box .headingExm h4{margin-top: -10px;color: #107caa;}
@@ -18,7 +19,7 @@
 
 <header>
 <div class="outer">
-		<div class="logo"><a href="/"><img src="/../static/images/connected.jpg"></a></div>
+		<div class="logo"><a href="/"><img src="/../static/images/logo.png"></a></div>
 {% if user.is_authenticated %}
 	<div class="my-profile">
 		<div class="search-left">

@@ -1,5 +1,6 @@
 {% extends 'blog/base.html' %}
 {% load staticfiles %}
+{% block title %}{{user.username}}{% endblock %}
 {% block content %}
 
 
@@ -18,7 +19,7 @@
 					<p>{{user.profile.designation}}</p>
 					<p>{{user.profile.organisation}}</p>
 					</li>	
-					<a href="{% url 'follow' pk=user.id %}" class="log-btn">Connect</a>
+					<a href="{% url 'follow' pk=user.id %}" ><button class="log_btn">Connect</button></a>
 				</ul>
 				
 				</div>		
